@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "ts@ts.com",
+      "password": "$2a$10$fbq7DjN0YSXCGCG3f.reXe6PX6JVEyS.xcXRRpgc4KrEGa8bZGOYy",
+      "nickName": "테스트",
+      "id": 1
+    },
+    {
+      "email": "dldl@dldl.com",
+      "password": "$2a$10$H1kw6PON/8fHvDyz7DGyz.fW1o62WFfMvme4IlyKSnRUPLCHAvB1G",
+      "nickName": "이이이이",
+      "id": 2
+    }
+  ]
+}
