@@ -1,12 +1,18 @@
 import { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
+import useSetMutation from '../hooks/useSetMutation';
+
 import { loginFn } from '../api/auth';
 
 const Login = () => {
+  const { mutate: loginMutate } = useSetMutation(loginFn, ['user']);
+
   const [inputValue, setInputValue] = useState({
     email: '',
     password: '',
   });
-
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInputValue({
@@ -15,8 +21,18 @@ const Login = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   const loginBtn = () => {
-    loginFn(inputValue);
+    loginMutate(inputValue, {
+      onSuccess: () => {
+        alert('로그인 성공');
+        navigate('/');
+      },
+      onError: (error: any) => {
+        alert(error.response.data);
+      },
+    });
   };
 
   return (

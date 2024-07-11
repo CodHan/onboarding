@@ -5,16 +5,13 @@ const useSetMutation = (
   queryKey: QueryKey
 ) => {
   const queryClient = useQueryClient();
-  const { mutate, error } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: fc,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey });
     },
-    onError: (error) => {
-      console.error('Mutation error:', error);
-    },
   });
-  return { mutate, error };
+  return { mutate };
 };
 
 export default useSetMutation;

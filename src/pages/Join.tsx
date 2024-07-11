@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { signUp } from '../api/auth';
-import useSetMutation from '../hooks/useSetMutation';
+
 import { useNavigate } from 'react-router-dom';
 
-const Join = () => {
-  const { mutate: signUpMutate } = useSetMutation(signUp, ['user']);
+import useSetMutation from '../hooks/useSetMutation';
 
-  const navigate = useNavigate();
+import { signUp } from '../api/auth';
+import { QUERY_KEY } from '../utils/query_key';
+
+const Join = () => {
+  const { mutate: signUpMutate } = useSetMutation(signUp, [QUERY_KEY.userInfo]);
+
   const [inputValue, setInputValue] = useState({
     email: '',
     password: '',
     nickName: '',
   });
+
+  const navigate = useNavigate();
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

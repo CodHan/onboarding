@@ -1,17 +1,13 @@
 import { create } from 'zustand';
 
 type Store = {
-  email: string;
-  setEmail: (arg: string) => void;
-  isLogin: boolean;
-  setIsLogin: (arg: boolean) => void;
+  loginUserEmail: string;
+  setLoginUserEmail: (arg: string) => void;
 };
 
 const useUserStore = create<Store>()((set) => ({
-  email: '',
-  setEmail: (arg) => set({ email: arg }),
-  isLogin: false,
-  setIsLogin: (arg) => set({ isLogin: arg }),
+  loginUserEmail: '',
+  setLoginUserEmail: (arg) => set({ loginUserEmail: arg }),
 }));
 
 export default useUserStore;
